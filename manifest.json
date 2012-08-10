@@ -1,0 +1,15 @@
+{
+	"manifest_version": 2,
+  "name": "Codebits Talk Vote Count Hider",
+  "version": "1.0",
+  "description": "An extension to hide the vote count for yet-unvoted Codebits talks.",
+	"icons": { "16": "hider_16.png",
+						 "48": "hider_48.png",
+						"128": "hider_128.png" },
+  "page_action": {},
+  "content_scripts" : [{
+    "matches": ["https://codebits.eu/intra/s/proposal/*"],
+    "js": ["jquery.js", "hider.js"],
+    "run_at": "document_idle"
+  }]
+}
