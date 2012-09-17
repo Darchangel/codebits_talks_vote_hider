@@ -1,6 +1,9 @@
 codebits_talks_vote_hider
 =========================
 
+Chrome Web Store Link: http://bit.ly/St03x7
+Safari Extension Gallery Link: <To Be Announced>
+
 A Browser Extension to hide the Codebits' talks vote count before you vote on them
 
 To build:
