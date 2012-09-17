@@ -6,15 +6,16 @@ function checkItDude(show){
 	var thumbsUpImg = $('#thumbsupimg');
 	var thumbsDownImg = $('#thumbsdownimg');
 
-	var isVoted = (thumbsUpImg.css('border-color') != "rgb(255, 255, 255)") || (thumbsDownImg.css('border-color') != "rgb(255, 255, 255)");
+	var isVoted = ($('span#votext').length > 0 || $.makeArray($('span#thumbs>a')).reduce(function(prev, curr, idx, arr){return prev || $(curr).css('opacity') != 1;}, false) );
 
 	if(!show && !isVoted){
-		$('font').css('display', 'none');
-		$('font[color=green]').after('<font color="green" class="removeThisCrap">??</font>');
-		$('font[color=red]').after('<font color="red" class="removeThisCrap">??</font>');
+		$('span#rateup, span#ratedown').each(function(){
+			$(this).css('display', 'none');
+			$(this).after('<span class="removeThisCrap ' + $(this).attr('class') + '">??</span>');
+		});
 	} else {
-		$('font').css('display', 'inline');
-		$('font.removeThisCrap').remove();
+		$('span#rateup, span#ratedown').css('display', 'inline');
+		$('span.removeThisCrap').remove();
 	}
 }
 
